@@ -1,0 +1,17 @@
+<h1>Ticket Management</h1>
+<table>
+    <tr>
+        <th>Title</th>
+        <th>Status</th>
+        <th>Actions</th>
+    </tr>
+    {% for ticket in tickets %}
+    <tr>
+        <td>{{ ticket.title }}</td>
+        <td>{{ ticket.get_status_display }}</td>
+        <td>
+            <a href="{% url 'update_ticket_status' ticket.id %}">Change Status</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>

@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block title %}Create Ticket{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center">
+        <h2 style="font-weight: bolder;">Update Ticket</h2>
+        <div class="col-md-6">
+            <form method="post">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="title">Ticket Title:</label>
+                    <input type="text" class="form-control" id="title" name="title" required value="{{data.title}}">
+                </div>
+                <br>
+                <div class="form-group">
+                    <label for="description">Description:</label>
+                    <textarea class="form-control" id="description" name="desc" rows="4" required value="{{data.desc}}"></textarea>
+                </div>
+                <br>
+                <div class="form-group">
+                    <label for="priority">Priority:</label>
+                    <select class="form-control" id="priority" name="priority" value="{{data.priority}}">
+                        <option value="Low">Low</option>
+                        <option value="Medium">Medium</option>
+                        <option value="High">High</option>
+                    </select>
+                </div>
+                <br>
+                <div class="form-group">
+                    <label for="assigned_to">Assigned To:</label>
+                    <input type="text" class="form-control" id="assigned_to" name="assigned_to" value="{{data.assigned_to}}">
+                </div>
+                <br>
+                <div class="form-group">
+                    <label for="status">Status:</label>
+                    <select class="form-control" id="status" name="status" disabled>
+                        <option value="Open">Open</option>
+                        <option value="Pending">Pending</option>
+                        <option value="Solved">Solved</option>
+                    </select>
+                </div>
+                <br>
+                <button type="submit" class="btn btn-primary">Update Ticket</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

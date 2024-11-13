@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}Ticket List{% endblock %}
+
+
+{% block content %}
+<h2 style="font-weight: bolder;">My Tickets</h2>
+<div class="ticket-container">
+    {% for ticket in tickets %}
+        <div class="ticket-card {{ ticket.priority|lower }}">
+            <div class="ticket-header">
+                <h3>{{ ticket.title }}</h3>
+                <span class="status {{ ticket.status|lower }}">{{ ticket.status }}</span>
+            </div>
+            <p><strong>Description:</strong> {{ ticket.desc }}</p>
+            <p><strong>Priority:</strong> {{ ticket.priority }}</p>
+            <p><strong>Assigned to:</strong> {{ ticket.assigned_to }}</p>
+            <p><strong>Created at:</strong> {{ ticket.created_at }}</p>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}
+
