@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/5.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
-import os
+
 from pathlib import Path
 
 
@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-_4cyu&i8)3s!hgkv6=+9a@xm)&dwx7kc2g6n+lp3425%0p=)2h
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['.vercel.app','.now.sh']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -124,5 +124,3 @@ STATIC_URL = 'tickets/static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-STATICFILES_DIRS = os.path.join(BASE_DIR,'static'),
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
